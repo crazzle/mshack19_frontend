@@ -6,6 +6,6 @@ import {Pipe, PipeTransform} from '@angular/core';
 export class SelectionPipe implements PipeTransform {
 
   transform(value: number, list: string[]): any {
-    return list[value];
+    return list[value-1];
   }
 }

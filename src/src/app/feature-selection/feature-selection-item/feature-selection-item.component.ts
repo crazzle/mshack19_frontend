@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Feature} from '../../models/Feature';
 
 @Component({
   selector: 'app-feature-selection-item',
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./feature-selection-item.component.css']
 })
 export class FeatureSelectionItemComponent implements OnInit {
+  @Input() feature: Feature;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }

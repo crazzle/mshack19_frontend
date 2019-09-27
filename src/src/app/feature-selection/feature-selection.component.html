@@ -1,1 +1,7 @@
 <p>feature-selection works!</p>
+
+<div class="feature_list">
+  <div *ngFor="let feature of features">
+    <app-feature-selection-item [feature]="feature"></app-feature-selection-item>
+  </div>
+</div>
