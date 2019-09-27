@@ -8,6 +8,7 @@ import { FeatureSelectionComponent } from './feature-selection/feature-selection
 import { FeatureSelectionItemComponent } from './feature-selection/feature-selection-item/feature-selection-item.component';
 import { HeatmapComponent } from './heatmap/heatmap.component';
 import { ResultListComponent } from './result-list/result-list.component';
+import {AppRoutingModule} from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ResultListComponent } from './result-list/result-list.component';
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
