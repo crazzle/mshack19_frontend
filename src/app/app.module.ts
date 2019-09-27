@@ -8,8 +8,8 @@ import { FeatureSelectionComponent } from './feature-selection/feature-selection
 import { FeatureSelectionItemComponent } from './feature-selection/feature-selection-item/feature-selection-item.component';
 import { HeatMapComponent } from './heatmap/heat-map.component';
 import { ResultListComponent } from './result-list/result-list.component';
-import { AppRoutingModule} from './app-routing.module';
-import { MatCardModule, MatListModule, MatSliderModule} from '@angular/material';
+import {AppRoutingModule} from './app-routing.module';
+import { MatCardModule, MatListModule, MatSliderModule, MatButtonModule} from '@angular/material';
 import { SelectionPipe } from './helper/selection.pipe';
 import { ContainerComponent } from './container/container.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
@@ -30,8 +30,9 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
     BrowserAnimationsModule,
     AppRoutingModule,
     LeafletModule.forRoot(),
+    MatCardModule, 
+    MatButtonModule,
     MatListModule,
-    MatCardModule,
     MatSliderModule
   ],
   providers: [],
