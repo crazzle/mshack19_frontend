@@ -3,7 +3,7 @@
     <mat-card-title>{{feature.name}}</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <mat-slider min="1" max="{{feature.priorities.length}}" [(value)]="feature.value" step="1" ></mat-slider>
+    <mat-slider min="1" max="{{feature.priorities.length}}" [(value)]="feature.value" step="1"></mat-slider>
   </mat-card-content>
   <mat-card-footer>
     <div>{{feature.value | selection: feature.priorities}}</div>
