@@ -1,0 +1,23 @@
+.feature_value {
+  background: lightskyblue;
+}
+
+mat-card {
+  margin: 10px
+}
+
+mat-card-title {
+  margin-left: -15px;
+  margin-top: 10px;
+}
+
+mat-card-content {
+  margin-top: -20px;
+} 
+
+mat-card-footer {
+  text-align: left;
+  margin-left: 7px;
+  margin-top: -25px;
+  margin-bottom: 10px;
+}
