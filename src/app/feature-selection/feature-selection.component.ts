@@ -11,7 +11,7 @@ export class FeatureSelectionComponent implements OnInit {
   features: Feature[] = [];
 
   constructor(private homeService: HomeService) {
-    this.features = homeService.getFeatures();
+    this.features = homeService.getFeatureList();
   }
 
   ngOnInit() {

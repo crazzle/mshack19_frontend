@@ -1,7 +1,9 @@
+import {Select} from './Select';
+
 export interface Feature {
-  name: string;
-  description?: string;
-  priorities: string[];
+  id: string;
+  label: string;
   value: number;
-  logo?: object;
+  priorities: Select[];
+  description: string;
 }
