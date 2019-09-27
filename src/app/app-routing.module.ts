@@ -7,7 +7,7 @@ import {FeatureSelectionComponent} from './feature-selection/feature-selection.c
 import {ContainerComponent} from './container/container.component';
 
 const routes: Routes = [
-  {path: 'heatmap', component: HeatmapComponent},
+  {path: 'heatmap', component: HeatMapComponent},
   {path: 'results', component: ResultListComponent},
   {path: '', component: LandingPageComponent},
   {path: 'feature', component: FeatureSelectionComponent},

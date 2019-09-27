@@ -27,6 +27,7 @@ export class HeatMapComponent implements OnInit {
   onMapReady(map) {
     // tslint:disable-next-line:only-arrow-functions
     let newAddressPoints = addressPoints.map(function(p) { return [p[0], p[1]]; });
+    // @ts-ignore
     const heat = L.heatLayer(newAddressPoints).addTo(map);
   }
 
