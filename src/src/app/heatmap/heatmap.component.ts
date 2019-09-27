@@ -11,7 +11,7 @@ export class HeatmapComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    const map = L.map('map').setView([51.505, -0.09], 13);
+    const map = L.map('map').setView([51.9606649, 7.6261347], 16);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
