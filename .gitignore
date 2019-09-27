@@ -31,7 +31,8 @@ e2e/*.js
 e2e/*.map
 
 #System Files
-.DS_Store/
+.DS_Store
+Thumbs.db
 
 ### WebStorm+all ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and WebStorm
