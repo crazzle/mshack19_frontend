@@ -24,6 +24,7 @@
     "@asymmetrik/ngx-leaflet": "^6.0.1",
     "leaflet": "^1.5.1",
     "leaflet.heat": "^0.2.0",
+    "hammerjs": "^2.0.8",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
