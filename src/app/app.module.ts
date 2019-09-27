@@ -6,9 +6,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { FeatureSelectionComponent } from './feature-selection/feature-selection.component';
 import { FeatureSelectionItemComponent } from './feature-selection/feature-selection-item/feature-selection-item.component';
-import { HeatmapComponent } from './heatmap/heatmap.component';
+import { HeatMapComponent } from './heatmap/heat-map.component';
 import { ResultListComponent } from './result-list/result-list.component';
-import {AppRoutingModule} from './app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 @NgModule({
   declarations: [
@@ -16,13 +17,14 @@ import {AppRoutingModule} from './app-routing.module';
     LandingPageComponent,
     FeatureSelectionComponent,
     FeatureSelectionItemComponent,
-    HeatmapComponent,
+    HeatMapComponent,
     ResultListComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    LeafletModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
