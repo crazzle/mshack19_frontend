@@ -9,6 +9,8 @@ import { FeatureSelectionItemComponent } from './feature-selection/feature-selec
 import { HeatmapComponent } from './heatmap/heatmap.component';
 import { ResultListComponent } from './result-list/result-list.component';
 import {AppRoutingModule} from './app-routing.module';
+import {MatCardModule, MatButtonModule} from '@angular/material'
+
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import {AppRoutingModule} from './app-routing.module';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatCardModule, MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

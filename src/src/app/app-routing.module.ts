@@ -8,7 +8,7 @@ import {FeatureSelectionComponent} from './feature-selection/feature-selection.c
 const routes: Routes = [
   { path: 'heatmap', component: HeatmapComponent },
   { path: 'results', component: ResultListComponent },
-  { path: '/', component: LandingPageComponent },
+  { path: '', component: LandingPageComponent },
   { path: 'feature', component: FeatureSelectionComponent }
 ];
 
