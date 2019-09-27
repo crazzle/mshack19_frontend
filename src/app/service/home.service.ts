@@ -1,11 +1,16 @@
 import {Injectable} from '@angular/core';
 import {Feature} from '../models/Feature';
 import {Role} from '../models/Role';
+import {DataPoint} from '../models/DataPoint';
+import { addressPoints } from '../../assets/long_lat_mock';
 
 @Injectable({
     providedIn: 'root'
 })
 export class HomeService {
+
+    constructor() {
+    }
     features: Feature[] = [
         {
             id: 'university',
@@ -44,7 +49,8 @@ export class HomeService {
         }
     ];
 
-    constructor() {
+    static getDataPoints(): DataPoint [] {
+        return addressPoints;
     }
 
     getFeatureList(): Feature[] {
