@@ -11,6 +11,7 @@ import { ResultListComponent } from './result-list/result-list.component';
 import {AppRoutingModule} from './app-routing.module';
 import {MatCardModule, MatListModule, MatSliderModule} from '@angular/material';
 import { SelectionPipe } from './helper/selection.pipe';
+import { ContainerComponent } from './container/container.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SelectionPipe } from './helper/selection.pipe';
     FeatureSelectionItemComponent,
     HeatmapComponent,
     ResultListComponent,
-    SelectionPipe
+    SelectionPipe,
+    ContainerComponent
   ],
   imports: [
     BrowserModule,
