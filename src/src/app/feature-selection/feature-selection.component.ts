@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {HomeService} from '../service/home.service';
+import {Feature} from '../models/Feature';
 
 @Component({
   selector: 'app-feature-selection',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./feature-selection.component.css']
 })
 export class FeatureSelectionComponent implements OnInit {
+  features: Feature[] = [];
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private homeService: HomeService) {
+    this.features = homeService.getFeatures();
   }
 
+  ngOnInit() {
+
+  }
 }
