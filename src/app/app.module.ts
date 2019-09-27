@@ -30,7 +30,7 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
     BrowserAnimationsModule,
     AppRoutingModule,
     LeafletModule.forRoot(),
-    MatCardModule, 
+    MatCardModule,
     MatButtonModule,
     MatListModule,
     MatSliderModule
