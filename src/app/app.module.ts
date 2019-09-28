@@ -14,6 +14,7 @@ import {ContainerComponent} from './container/container.component';
 import {LeafletModule} from '@asymmetrik/ngx-leaflet';
 import {HeatMapComponent} from './heatmap/heat-map.component';
 import {MatToolbarModule, MatIconModule} from '@angular/material';
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 @NgModule({
     declarations: [
@@ -36,7 +37,8 @@ import {MatToolbarModule, MatIconModule} from '@angular/material';
         MatListModule,
         MatSliderModule,
         MatToolbarModule,
-        MatIconModule
+        MatIconModule,
+        MatTooltipModule
     ],
     providers: [],
     bootstrap: [AppComponent]

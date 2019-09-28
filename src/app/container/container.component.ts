@@ -30,6 +30,7 @@ export class ContainerComponent implements OnInit {
 
     getHeapMapData() {
         this.data = this.service.getMapData(this.selection);
+
     }
 
     getFeatureList() {
