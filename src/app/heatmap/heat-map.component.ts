@@ -34,10 +34,19 @@ export class HeatMapComponent implements OnInit {
         this.dataPoints
             .filter(x => x[2] > 0.0) // todo  choose better weight.
             .map(x => {
-              return [x[1], x[0], x[2]];
+              let coord = [x[1], x[0], Math.round(x[2] * 100) / 100];
+              console.log(coord);
+              return coord;
             });
     // @ts-ignore
-    L.heatLayer(addressPoints, {gradient: {0.001: 'blue', 0.025: 'lime', 0.2: 'red'}}).addTo(map);
+    L.heatLayer(addressPoints, {
+      radius: 50,
+      maxZoom: 14,
+      gradient: {
+        0.7: 'blue',
+        0.85: 'lime',
+        1: 'red'}
+    }).addTo(map);
   }
 
 }
