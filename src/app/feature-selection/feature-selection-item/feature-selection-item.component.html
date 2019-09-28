@@ -4,7 +4,7 @@
       <mat-card-title matTooltip="{{feature.description}}" matTooltipPosition="right">{{feature.label}}</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <mat-slider min="1" max="{{feature.priorities.length}}" [(value)]="feature.value" step="1" tickInterval="1"></mat-slider>
+      <mat-slider min="1" max="{{feature.priorities.length}}" [(value)]="feature.value" step="1" tickInterval="1" (change)="emit()"></mat-slider>
     </mat-card-content>
     <mat-card-footer>
       <div>{{feature.priorities[feature.value - 1].label}}</div>
