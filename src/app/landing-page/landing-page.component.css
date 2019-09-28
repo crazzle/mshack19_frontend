@@ -11,6 +11,10 @@ h3 {
     padding-left: 10px;
 }
 
+mat-card-header {
+    display: inline;
+}
+
 mat-card {
     cursor: pointer
 }
