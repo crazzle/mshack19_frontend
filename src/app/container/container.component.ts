@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {HomeService} from "../service/home.service";
-import {Feature} from "../models/Feature";
-import {Select} from "../models/Select";
-import {Role} from "../models/Role";
+import {HomeService} from '../service/home.service';
+import {Feature} from '../models/Feature';
+import {Select} from '../models/Select';
+import {Role} from '../models/Role';
 
 @Component({
     selector: 'app-container',
@@ -10,7 +10,7 @@ import {Role} from "../models/Role";
     styleUrls: ['./container.component.css']
 })
 export class ContainerComponent implements OnInit {
-    roleNumber: number = 0;
+    roleNumber = 0;
     features: Feature[] = [];
     selection: Select[] = [];
     data = [];

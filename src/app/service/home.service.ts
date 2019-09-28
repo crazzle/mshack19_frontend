@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Feature} from '../models/Feature';
-import {Select} from "../models/Select";
+import {Select} from '../models/Select';
 import { addressPoints } from '../../assets/long_lat_mock';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { DataPoint } from '../models/DataPoint';
@@ -56,7 +56,7 @@ export class HomeService {
     getFeatureList(): Feature[] {
         const httpOptions = {
             headers: new HttpHeaders({
-              'accept':  'application/json'
+              accept:  'application/json'
             //   'origin': 'http://localhost:8000'
             })
           };
@@ -72,12 +72,12 @@ export class HomeService {
 
         const httpOptions = {
             headers: new HttpHeaders({
-              'accept':  'application/json'
+              accept:  'application/json'
             //   'origin': 'http://localhost:8000'
             })
           };
 
-        this.http.get('http://localhost:8000/preselected_features/'+role.toLowerCase(), httpOptions).subscribe((res: Feature[]) => {
+        this.http.get('http://localhost:8000/preselected_features/' + role.toLowerCase(), httpOptions).subscribe((res: Feature[]) => {
             this.features = res;
         });
         console.log('by role: ', this.features);
@@ -87,23 +87,23 @@ export class HomeService {
     getMapData(selection: Map<string, number>) {
         const httpOptions = {
             headers: new HttpHeaders({
-                'accept':  'application/json'
+                accept:  'application/json'
             })
         };
 
-        let queryString = "{";
-        selection.forEach((k,v) => {
-           queryString = queryString.concat("\"", v.toString(), "\"",":", k.toString(), ",")
+        let queryString = '{';
+        selection.forEach((k, v) => {
+           queryString = queryString.concat('"', v.toString(), '"', ':', k.toString(), ',');
         });
-        queryString = queryString.substr(0, queryString.length - 1).concat("}");
+        queryString = queryString.substr(0, queryString.length - 1).concat('}');
 
         // const queryString = prefix + middlePart + suffix;
-        const queryStringNoSpaces = queryString.replace(/ /g, '')
+        const queryStringNoSpaces = queryString.replace(/ /g, '');
         console.log(queryStringNoSpaces);
 
-        this.http.get('http://localhost:8000/search?query='+ queryStringNoSpaces, httpOptions).subscribe((res: DataPoint[]) => {
+        this.http.get('http://localhost:8000/search?query=' + queryStringNoSpaces, httpOptions).subscribe((res: DataPoint[]) => {
             console.log(res);
-            this.dataPoints = res
+            this.dataPoints = res;
         });
         return this.dataPoints;
     }

@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Feature} from '../models/Feature';
-import {Select} from "../models/Select";
+import {Select} from '../models/Select';
 
 @Component({
     selector: 'app-feature-selection',
