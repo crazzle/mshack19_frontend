@@ -11,7 +11,6 @@ import {DataPoint} from '../models/DataPoint';
 export class HeatMapComponent implements OnInit, OnChanges {
 
     @Input() dataPoints: DataPoint[] = [];
-
     map;
 
     options = {
@@ -31,7 +30,6 @@ export class HeatMapComponent implements OnInit, OnChanges {
     ngOnInit() { }
 
     ngOnChanges() {
-        console.log(this.dataPoints);
         this.onMapReady(this.map)
     }
 
