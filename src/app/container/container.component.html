@@ -1,9 +1,9 @@
 <div class="container">
   <div class="feature_view">
-    <app-feature-selection></app-feature-selection>
+    <app-feature-selection [role]="0" [features]="features" (messageEvent)="fetchSelection($event)"></app-feature-selection>
   </div >
 
   <div class="heatmap-view">
-    <app-heatmap></app-heatmap>
+    <app-heatmap [dataPoints]="data"></app-heatmap>
   </div>
 </div>
