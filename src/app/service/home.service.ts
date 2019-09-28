@@ -15,13 +15,13 @@ export class HomeService {
         {
             id: 'university',
             label: 'Nähe zur Uni',
-            priorities: [{label: '<= 1km', value: 1}, {label: '<= 5km', value: 2}, {label: '>5km', value: 3}],
+            priorities: [{label: '< 1km', value: 1}, {label: '< 5km', value: 2}, {label: '> 5km', value: 3}],
             description: 'Hier kannst du einstellen, wie nah an der Uni du wohnen möchtest.',
             value: 1
         },
         {
             id: 'shopping',
-            label: 'Einkaufen',
+            label: 'Supermärkte',
             priorities: [{label: 'nah', value: 1}, {label: 'moderat', value: 2}, {label: 'weit entfernt', value: 3}],
             description: 'Wie wichtig sind dir Einkaufsmöglichkeiten in der Nähe?',
             value: 1
@@ -36,7 +36,7 @@ export class HomeService {
         {
             id: 'transport',
             label: 'ÖPNV',
-            priorities: [{label: '<= 50m', value: 1}, {label: '<= 200m', value: 2}, {label: '>200m', value: 3}],
+            priorities: [{label: '< 50m', value: 1}, {label: '< 200m', value: 2}, {label: '>200m', value: 3}],
             description: 'Fährst du gerne mit dem Bus? Wie nah sollte die näheste Bushaltestelle sein?',
             value: 1
         },

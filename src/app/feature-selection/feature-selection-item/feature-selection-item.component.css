@@ -1,6 +1,4 @@
 mat-card {
-  display: grid;
-  
   background: lightskyblue;
   /*69A3B0*/
   color: white;
@@ -13,25 +11,18 @@ mat-card {
 }
 
 mat-card-title {
-  grid-column: 1;
-  grid-row: 1;
+  font-size: 24px;
 }
 
 mat-card-content {
-  grid-column: 1;
-  grid-row: 2;
   padding-left: 10px;
+  margin-top: -10px;
 }
 
 mat-card-footer {
-  grid-column: 1;
-  padding-left: 30px;
-  padding-bottom: 50px;
-  grid-row: 3;
-}
-
-#description {
-  grid-column: 2;
-  grid-row: 2;
-  padding-left: 5px;
+  padding-bottom: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: -20px;
 }
