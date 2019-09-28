@@ -2,13 +2,14 @@ import {Injectable} from '@angular/core';
 import {Feature} from '../models/Feature';
 import {Select} from "../models/Select";
 import { addressPoints } from '../../assets/long_lat_mock';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
     providedIn: 'root'
 })
 export class HomeService {
 
-    constructor() {
+    constructor(private http: HttpClient) {
     }
 
     features: Feature[] = [
@@ -52,14 +53,44 @@ export class HomeService {
     dataPoints = addressPoints;
 
     getFeatureList(): Feature[] {
+        const httpOptions = {
+            headers: new HttpHeaders({
+              'accept':  'application/json'
+            //   'origin': 'http://localhost:8000'
+            })
+          };
+
+        this.http.get('http://localhost:8000/features', httpOptions).subscribe((res: Feature[]) => {
+            this.features = res;
+        });
+        console.log('list: ', this.features);
         return this.features;
     }
 
     getFeatureListForRole(role: string): Feature[] {
+
+        const httpOptions = {
+            headers: new HttpHeaders({
+              'accept':  'application/json'
+            //   'origin': 'http://localhost:8000'
+            })
+          };
+
+        this.http.get('http://localhost:8000/preselected_features/'+role.toLowerCase(), httpOptions).subscribe((res: Feature[]) => {
+            this.features = res;
+        });
+        console.log('by role: ', this.features);
         return this.features;
     }
 
     getMapData(selection: Select[]) {
+        const httpOptions = {
+            headers: new HttpHeaders({'accept':  'application/json'})
+          };
+
+        this.http.get('http://localhost:8000/search', httpOptions).subscribe((res: Feature[]) => {
+            this.features = res;
+        });
         return this.dataPoints;
     }
 }
