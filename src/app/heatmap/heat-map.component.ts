@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import * as L from 'leaflet';
 import 'leaflet.heat/dist/leaflet-heat.js';
 import {DataPoint} from '../models/DataPoint';
@@ -8,9 +8,11 @@ import {DataPoint} from '../models/DataPoint';
     templateUrl: './heat-map.component.html',
     styleUrls: ['./heat-map.component.css']
 })
-export class HeatMapComponent implements OnInit {
+export class HeatMapComponent implements OnInit, OnChanges {
 
     @Input() dataPoints: DataPoint[] = [];
+
+    map;
 
     options = {
         layers: [
@@ -28,7 +30,13 @@ export class HeatMapComponent implements OnInit {
 
     ngOnInit() { }
 
+    ngOnChanges() {
+        console.log(this.dataPoints);
+        this.onMapReady(this.map)
+    }
+
     onMapReady(map) {
+        this.map = map;
         let addressPoints: any[][][] =
             this.dataPoints
                 .filter(x => x[2] > 0.0) // todo  choose better weight.

@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Feature} from '../models/Feature';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {DataPoint} from '../models/DataPoint';
+import {Observable} from "rxjs";
 
 @Injectable({
     providedIn: 'root'
@@ -57,7 +57,7 @@ export class HomeService {
         return this.features;
     }
 
-    getMapData(selection: Map<string, number>): DataPoint[] {
+    getMapData(selection: Map<string, number>): Observable<Object> {
         const httpOptions = {
             headers: new HttpHeaders({
                 'accept': 'application/json'
@@ -78,9 +78,6 @@ export class HomeService {
                 console.log("DATA: " + data);
             });*/
 
-        this.http.get('http://localhost:8000/search?query=' + queryStringNoSpaces, httpOptions).subscribe((res: DataPoint[]) => {
-            return res;
-        });
-        return [];
+        return this.http.get('http://localhost:8000/search?query=' + queryStringNoSpaces, httpOptions);
     }
 }

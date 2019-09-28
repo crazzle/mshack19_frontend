@@ -13,7 +13,7 @@ export class ContainerComponent implements OnInit {
     roleNumber: number = 0;
     features: Feature[] = [];
     selection: Map<string, number> = new Map<string, number>();
-    data = [];
+    data: DataPoint[] = [];
 
     constructor(private service: HomeService) {
         this.getHeapMapData();
@@ -29,8 +29,9 @@ export class ContainerComponent implements OnInit {
     }
 
     getHeapMapData() {
-        this.data = this.service.getMapData(this.selection);
-
+        this.service.getMapData(this.selection).subscribe((data: DataPoint[]) => {
+            this.data = data;
+        });
     }
 
     getFeatureList() {
