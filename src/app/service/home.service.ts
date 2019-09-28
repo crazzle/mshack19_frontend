@@ -3,6 +3,7 @@ import {Feature} from '../models/Feature';
 import {Select} from "../models/Select";
 import { addressPoints } from '../../assets/long_lat_mock';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { DataPoint } from '../models/DataPoint';
 
 @Injectable({
     providedIn: 'root'
@@ -83,13 +84,18 @@ export class HomeService {
         return this.features;
     }
 
-    getMapData(selection: Select[]) {
+    getMapData(selection: Map<string, number>) {
         const httpOptions = {
             headers: new HttpHeaders({'accept':  'application/json'})
-          };
+        };
 
-        this.http.get('http://localhost:8000/search', httpOptions).subscribe((res: Feature[]) => {
-            this.features = res;
+        const queryString = selection.forEach((k,v) => {
+            const tmp = ""
+            tmp.concat(JSON.stringify(v))
+        });
+
+        this.http.get('http://localhost:8000/search?query=' + queryString, httpOptions).subscribe((res: DataPoint[]) => {
+            this.dataPoints = res
         });
         return this.dataPoints;
     }
