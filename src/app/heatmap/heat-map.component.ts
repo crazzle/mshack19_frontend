@@ -11,7 +11,6 @@ import {DataPoint} from '../models/DataPoint';
 export class HeatMapComponent implements OnInit, OnChanges {
 
     @Input() dataPoints: DataPoint[] = [];
-
     map;
     options;
 
@@ -22,7 +21,6 @@ export class HeatMapComponent implements OnInit, OnChanges {
     ngOnInit() { }
 
     ngOnChanges() {
-
         this.options = {
             layers: [
                 L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
