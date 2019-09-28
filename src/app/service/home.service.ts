@@ -86,15 +86,23 @@ export class HomeService {
 
     getMapData(selection: Map<string, number>) {
         const httpOptions = {
-            headers: new HttpHeaders({'accept':  'application/json'})
+            headers: new HttpHeaders({
+                'accept':  'application/json'
+            })
         };
 
-        const queryString = selection.forEach((k,v) => {
-            const tmp = ""
-            tmp.concat(JSON.stringify(v))
+        let queryString = "{";
+        selection.forEach((k,v) => {
+           queryString = queryString.concat("\"", v.toString(), "\"",":", k.toString(), ",")
         });
+        queryString = queryString.substr(0, queryString.length - 1).concat("}");
 
-        this.http.get('http://localhost:8000/search?query=' + queryString, httpOptions).subscribe((res: DataPoint[]) => {
+        // const queryString = prefix + middlePart + suffix;
+        const queryStringNoSpaces = queryString.replace(/ /g, '')
+        console.log(queryStringNoSpaces);
+
+        this.http.get('http://localhost:8000/search?query='+ queryStringNoSpaces, httpOptions).subscribe((res: DataPoint[]) => {
+            console.log(res);
             this.dataPoints = res
         });
         return this.dataPoints;
