@@ -13,16 +13,7 @@ export class HeatMapComponent implements OnInit, OnChanges {
     @Input() dataPoints: DataPoint[] = [];
 
     map;
-
-    options = {
-        layers: [
-            L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                maxZoom: 18
-            })
-        ],
-        zoom: 12,
-        center: L.latLng(51.820500298442674, 7.382656727408407)
-    };
+    options;
 
     constructor() {
 
@@ -31,8 +22,17 @@ export class HeatMapComponent implements OnInit, OnChanges {
     ngOnInit() { }
 
     ngOnChanges() {
-        console.log(this.dataPoints);
-        this.onMapReady(this.map)
+
+        this.options = {
+            layers: [
+                L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 18
+                })
+            ],
+            zoom: 12,
+            center: L.latLng(51.9600191, 7.6111435)
+        };
+        this.onMapReady(this.map);
     }
 
     onMapReady(map) {
