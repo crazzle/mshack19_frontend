@@ -3,11 +3,6 @@
     grid-template-columns: 33% 33% 33%;
     text-align: center;
 }
-
-mat-toolbar {
-    display: grid;
-}
-
 .logo {
     padding-bottom: -10px;
 }
