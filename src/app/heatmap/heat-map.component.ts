@@ -12,6 +12,7 @@ export class HeatMapComponent implements OnInit, OnChanges {
 
     @Input() dataPoints: DataPoint[] = [];
     map;
+    heatLayer;
 
 
     options = {
@@ -46,6 +47,9 @@ export class HeatMapComponent implements OnInit, OnChanges {
 
     onMapReady(map) {
         this.map = map;
+        if (this.heatLayer != null) {
+          this.heatLayer.removeFrom(map);
+        }
         let addressPoints: any[][][] =
             this.dataPoints
                 .filter(x => x[2] > 0.05) // todo  choose better weight.
@@ -54,14 +58,23 @@ export class HeatMapComponent implements OnInit, OnChanges {
                     return coord;
                 });
         // @ts-ignore
-        L.heatLayer(addressPoints, {
-            radius: 23,
-            maxZoom: 14,
-            gradient: {
-                0.5: 'blue',
-                0.85: 'lime',
-                1: 'red'}
+        
+        this.heatLayer = L.heatLayer(addressPoints, {
+          radius: 23,
+          maxZoom: 14,
+          gradient: {
+              0.5: 'blue',
+              0.85: 'lime',
+              1: 'red'}
         }).addTo(map);
+        // L.heatLayer(addressPoints, {
+        //     radius: 23,
+        //     maxZoom: 14,
+        //     gradient: {
+        //         0.5: 'blue',
+        //         0.85: 'lime',
+        //         1: 'red'}
+        // }).remove().addTo(map);
     }
 
 }
