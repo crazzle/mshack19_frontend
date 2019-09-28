@@ -13,6 +13,7 @@ import {SelectionPipe} from './helper/selection.pipe';
 import {ContainerComponent} from './container/container.component';
 import {LeafletModule} from '@asymmetrik/ngx-leaflet';
 import {HeatMapComponent} from './heatmap/heat-map.component';
+import {MatToolbarModule, MatIconModule} from '@angular/material';
 
 @NgModule({
     declarations: [
@@ -33,7 +34,9 @@ import {HeatMapComponent} from './heatmap/heat-map.component';
         MatCardModule,
         MatButtonModule,
         MatListModule,
-        MatSliderModule
+        MatSliderModule,
+        MatToolbarModule,
+        MatIconModule
     ],
     providers: [],
     bootstrap: [AppComponent]

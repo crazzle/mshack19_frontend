@@ -1,11 +1,14 @@
-<mat-card class="feature_value">
-  <mat-card-header>
-    <mat-card-title>{{feature.label}}</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <mat-slider min="1" max="{{feature.priorities.length}}" [(value)]="feature.value" step="1" (change)="emit()"></mat-slider>
-  </mat-card-content>
-  <mat-card-footer>
-    <div>{{feature.priorities[feature.value - 1].label}}</div>
-  </mat-card-footer>
-</mat-card>
+<div class="card">
+  <mat-card class="feature_value">
+    <mat-card-header>
+      <mat-card-title>{{feature.label}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-slider min="1" max="{{feature.priorities.length}}" [(value)]="feature.value" step="1"></mat-slider>
+    </mat-card-content>
+    <mat-card-footer>
+      <div>{{feature.priorities[feature.value - 1].label}}</div>
+    </mat-card-footer>
+    <div id="description">{{feature.description}}</div>
+  </mat-card>
+</div>

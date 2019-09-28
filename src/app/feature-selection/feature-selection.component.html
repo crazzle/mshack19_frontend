@@ -1,3 +1,5 @@
+<h1>Wähle deine Wohnungsprioritäten aus!</h1>
+
 <div class="feature_list">
   <div *ngFor="let feature of features">
     <app-feature-selection-item (messageEvent)="receiveMessage($event)" [feature]="feature"></app-feature-selection-item>
