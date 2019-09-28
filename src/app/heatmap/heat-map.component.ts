@@ -10,35 +10,42 @@ import {DataPoint} from '../models/DataPoint';
 })
 export class HeatMapComponent implements OnInit {
 
-    @Input() dataPoints: DataPoint[];
+  @Input() dataPoints: DataPoint[] = [];
 
-    options = {
-        layers: [
-            L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                maxZoom: 18
-            })
-        ],
-        zoom: 12,
-        center: L.latLng(51.820500298442674, 7.382656727408407)
-    };
+  options = {
+    layers: [
+      L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18
+      })
+    ],
+    zoom: 12,
+    center: L.latLng(51.820500298442674, 7.382656727408407)
+  };
 
-    constructor() {
+  constructor() {
+    this.dataPoints = HomeService.getDataPoints();
+  }
 
-    }
+  ngOnInit() { }
 
-    ngOnInit() {
-
-    }
-
-    onMapReady(map) {
-        let addressPoints: any[][][] =
-            this.dataPoints
-                .filter(x => x[2] > 0.0) // todo  choose better weight.
-                .map(x => {
-                    return [x[1], x[0], x[2]];
-                });
-        // @ts-ignore
-        L.heatLayer(addressPoints, {gradient: {0.001: 'blue', 0.025: 'lime', 0.2: 'red'}}).addTo(map);
-    }
+  onMapReady(map) {
+    let addressPoints: any[][][] =
+        this.dataPoints
+            .filter(x => x[2] > 0.0) // todo  choose better weight.
+            .map(x => {
+              let coord = [x[1], x[0], Math.round(x[2] * 100) / 100];
+              console.log(coord);
+              return coord;
+            });
+    // @ts-ignore
+    L.heatLayer(addressPoints, {
+      radius: 50,
+      maxZoom: 14,
+      gradient: {
+        0.7: 'blue',
+        0.85: 'lime',
+        1: 'red'}
+    }).addTo(map);
+  }
 
 }
