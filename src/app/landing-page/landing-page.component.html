@@ -5,23 +5,26 @@
         <span class="menu-spacer"></span>
     </mat-toolbar-row>
 </mat-toolbar>
+
 <header style="text-align:center">
-    <h1>Hallo!</h1>
-    <div id="logo">
-        <img src="./assets/logo_flatmap.png" style="max-height: 100px; margin-top: 20px">
-    </div>
-    <h2>Wer bist du?</h2>
+    <h1 style="color: lightskyblue; margin-top: 10px; font-size: 80px; margin-bottom: -5px">
+        Hallo!
+    </h1>
+    <img src="./assets/logo_flatmap.png" style="max-height: 100px; margin-top: 20px">
+    <h2 style="padding-bottom: 5px;">
+        Wer bist du?
+    </h2>
 </header>
-<main>
+<main style="padding:10px">
     <div class="pictures">
-        <mat-card class="tp-card" style="margin:10px" (click)="goToFeatureSelection('Student')">
+        <mat-card class="tp-card" style="margin:10px">
             <mat-card-header>
                 <mat-card-title>Stefan Student</mat-card-title>
                 <mat-card-subtitle>Ist gerade nach Münster gezogen</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
                 <img style="padding-top:10px" mat-card-image src="https://image.flaticon.com/icons/svg/167/167750.svg"
-                    alt="Stefan Student">
+                     alt="Stefan Student" (click)="goToFeatureSelectionForStudent()">
                 <p>
                     Ich bin Stefan, ich studiere aktuell Mathe an der Uni Münster.
                     In meiner Freizeit spiele ich gern Quidditch. Wichtig ist mir,
@@ -30,14 +33,15 @@
                 </p>
             </mat-card-content>
         </mat-card>
-        <mat-card class="tp-card" style="margin:5px" (click)="goToFeatureSelection('Family')">
+        <mat-card class="tp-card" style="margin:5px">
             <mat-card-header>
                 <div mat-card-avatar class="tp-header-image"></div>
                 <h3>Familie Froh</h3>
             </mat-card-header>
             <mat-card-content>
-                <div style="padding-top:10px; padding-left:10px; padding-right:10px">
-                    <img mat-card-image src="https://image.flaticon.com/icons/svg/1530/1530840.svg" alt="Familie">
+                <div style="padding-top:10px; padding-left: 10px; padding-right: 10px">
+                    <img mat-card-image src="https://image.flaticon.com/icons/svg/1530/1530840.svg" alt="Familie"
+                         (click)="goToFeatureSelectionForStudent()">
                 </div>
                 <p>
                     Wir heißen Noah, Emma und Magret. Emma und ich
@@ -47,14 +51,14 @@
                 </p>
             </mat-card-content>
         </mat-card>
-        <mat-card class="tp-card" style="margin:10px" (click)="goToFeatureSelection('Business')">
+        <mat-card class="tp-card" style="margin:10px">
             <mat-card-header>
                 <mat-card-title>Brenda Business</mat-card-title>
                 <mat-card-subtitle>Wünscht sich eine schönere Wohnung</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
                 <img style="padding-top:10px" mat-card-image src="https://image.flaticon.com/icons/svg/554/554857.svg"
-                    alt="Businessmensch">
+                     alt="Businessmensch" (click)="goToFeatureSelectionForStudent()">
                 <p>
                     Mein Name ist Brenda. Ich arbeite in Münster bei der LVM
                     und fahre abends gerne zum Sport. Ich gehe gerne mit meinen
