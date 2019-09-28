@@ -12,7 +12,18 @@ export class HeatMapComponent implements OnInit, OnChanges {
 
     @Input() dataPoints: DataPoint[] = [];
     map;
-    options;
+
+
+    options = {
+        layers: [
+            L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 18
+            })
+        ],
+        zoom: 12,
+        center: L.latLng(51.962268, 7.625148)
+    };
+    // 51.962268, 7.625148
 
     constructor() {
 
@@ -37,17 +48,17 @@ export class HeatMapComponent implements OnInit, OnChanges {
         this.map = map;
         let addressPoints: any[][][] =
             this.dataPoints
-                .filter(x => x[2] > 0.0) // todo  choose better weight.
+                .filter(x => x[2] > 0.05) // todo  choose better weight.
                 .map(x => {
                     let coord = [x[1], x[0], Math.round(x[2] * 100) / 100];
                     return coord;
                 });
         // @ts-ignore
         L.heatLayer(addressPoints, {
-            radius: 50,
+            radius: 23,
             maxZoom: 14,
             gradient: {
-                0.7: 'blue',
+                0.5: 'blue',
                 0.85: 'lime',
                 1: 'red'}
         }).addTo(map);
