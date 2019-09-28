@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {HomeService} from "../service/home.service";
 import {Feature} from "../models/Feature";
-import {Select} from "../models/Select";
 import {Role} from "../models/Role";
+import {DataPoint} from "../models/DataPoint";
 
 @Component({
     selector: 'app-container',
@@ -12,7 +12,7 @@ import {Role} from "../models/Role";
 export class ContainerComponent implements OnInit {
     roleNumber: number = 0;
     features: Feature[] = [];
-    selection: Select[] = [];
+    selection: Map<string, number> = new Map<string, number>();
     data = [];
 
     constructor(private service: HomeService) {
