@@ -13,68 +13,44 @@ export class HeatMapComponent implements OnInit, OnChanges {
     @Input() dataPoints: DataPoint[] = [];
     map;
     heatLayer;
-
-
-    options = {
-        layers: [
-            L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                maxZoom: 18
-            })
-        ],
-        zoom: 12,
-        center: L.latLng(51.962268, 7.625148)
-    };
-    // 51.962268, 7.625148
+    addressPoints: any[][][];
 
     constructor() {
 
     }
 
-    ngOnInit() { }
-
-    ngOnChanges() {
-        this.options = {
-            layers: [
-                L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                    maxZoom: 18
-                })
-            ],
-            zoom: 12,
-            center: L.latLng(51.9600191, 7.6111435)
-        };
-        this.onMapReady(this.map);
+    ngOnInit() { 
+        this.map = L.map('map').setView([51.962268, 7.625148], 12);
+        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18
+        }).addTo(this.map);
     }
 
-    onMapReady(map) {
-        this.map = map;
+    ngOnChanges() {
+        this.addressPoints = this.dataPoints
+            .filter(x => x[2] > 0.05)
+            .map(x => {
+                let coord = [x[1], x[0], Math.round(x[2] * 100) / 100];
+                return coord;
+            });
+        this.updateHeatLayer();
+    }
+
+    updateHeatLayer() {
         if (this.heatLayer != null) {
-          this.heatLayer.removeFrom(map);
+            this.heatLayer.removeFrom(this.map);
         }
-        let addressPoints: any[][][] =
-            this.dataPoints
-                .filter(x => x[2] > 0.05) // todo  choose better weight.
-                .map(x => {
-                    let coord = [x[1], x[0], Math.round(x[2] * 100) / 100];
-                    return coord;
-                });
-        // @ts-ignore
-        
-        this.heatLayer = L.heatLayer(addressPoints, {
-          radius: 23,
-          maxZoom: 14,
-          gradient: {
-              0.5: 'blue',
-              0.85: 'lime',
-              1: 'red'}
-        }).addTo(map);
-        // L.heatLayer(addressPoints, {
-        //     radius: 23,
-        //     maxZoom: 14,
-        //     gradient: {
-        //         0.5: 'blue',
-        //         0.85: 'lime',
-        //         1: 'red'}
-        // }).remove().addTo(map);
+        if (this.map != null) {
+            // @ts-ignore
+            this.heatLayer = L.heatLayer(this.addressPoints, {
+                radius: 23,
+                maxZoom: 14,
+                gradient: {
+                    0.5: 'blue',
+                    0.85: 'lime',
+                    1: 'red'}
+                }).addTo(this.map);
+        }
     }
 
 }
